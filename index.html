@@ -11,7 +11,7 @@
 
     <!-- Font Awesome cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
     <link href="style.css" rel="stylesheet" />
     <title>To-Do List</title>
     <style>
@@ -27,7 +27,7 @@
       >
         ToDo List
       </h1>
-      <div class="flex space-x-2 mb-4 mt-4 w-[80%]">
+      <div class="flex space-x-2 mb-4 mt-8 w-[80%]">
         <input
           type="text"
           id="taskInput"
@@ -36,12 +36,14 @@
         />
         <button
           id="addTaskBtn"
-          class="px-4 bg-green-500 hover:bg-green-600 text-white rounded-md transition cursor-pointer"
+          class="px-4 bg-green-500 hover:bg-green-600 text-white rounded-full transition cursor-pointer"
         >
-          Add
+        <i class="fa-solid fa-plus"></i>
         </button>
       </div>
-      <ul id="taskList" class="space-y-2 w-[80%] text-white"></ul>
+      <ul id="taskList" class="space-y-2 w-[80%] text-white">
+        
+      </ul>
       
     </div>
     <script src="script.js"></script>
