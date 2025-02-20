@@ -25,7 +25,7 @@ function addTaskToList(taskText) {
             <div class="relative mr-2">
                 <input type="checkbox" class="task-checkbox opacity-0 absolute top-0 left-0 w-5 h-5 cursor-pointer appearance-none -webkit-appearance-none -moz-appearance-none" />
                 <div class="custom-checkbox border rounded-full w-5 h-5 border-gray-300 dark:border-gray-500 bg-white dark:bg-gray-900 flex items-center justify-center transition-all duration-200 ease-in-out hover:ring-2 hover:ring-blue-400">
-                    <svg class="check-icon hidden w-3 h-3 text-white pointer-events-none" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <svg class="check-icon hidden w-3 h-3 text-black dark:text-white pointer-events-none" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
                     </svg>
                 </div>
