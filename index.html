@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google fonts link -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="style.css" rel="stylesheet" />
+    <title>To-Do List</title>
+  </head>
+
+  <body class="bg-gray-900 flex h-screen justify-center items-center">
+    <div
+      class="flex flex-col items-center bg-slate-700 border border-gray-50 p-4 h-[30%] w-[50%] rounded-2xl"
+    >
+      <h1
+        class="text-3xl font-bold font-['Nunito'] underline underline-offset-4 text-white"
+      >
+        ToDo List
+      </h1>
+
+      <div class="flex space-x-2 mb-4 mt-4 w-[80%]">
+        <input
+          type="text"
+          id="taskInput"
+          class="w-full flex-grow px-2 py-2 rounded-md border bg-white border-gray-300 focus:ring-2 focus:ring-blue-500"
+          placeholder="Enter a task"
+        />
+        <button
+          id="addTaskBtn"
+          class="px-4 bg-green-500 hover:bg-green-600 text-white rounded-md transition cursor-pointer"
+        >
+          Add
+        </button>
+      </div>
+
+      <ul id="taskList" class="space-y-2"></ul>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
