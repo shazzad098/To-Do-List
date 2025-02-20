@@ -25,7 +25,7 @@ function addTaskToList(taskText) {
             <div class="relative mr-2">
                 <input type="checkbox" class="task-checkbox opacity-0 absolute top-0 left-0 w-5 h-5 cursor-pointer appearance-none -webkit-appearance-none -moz-appearance-none" />
                 <div class="custom-checkbox border rounded-full w-5 h-5 border-gray-300 dark:border-gray-500 bg-white dark:bg-gray-900 flex items-center justify-center transition-all duration-200 ease-in-out hover:ring-2 hover:ring-blue-400">
-                    <svg class="check-icon hidden w-3 h-3 text-black dark:text-white pointer-events-none" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <svg class="check-icon hidden w-3 h-3 text-black pointer-events-none" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
                     </svg>
                 </div>
@@ -112,22 +112,29 @@ function toggleTaskComplete(li, checkbox) {
   } else {
     taskTextElement.classList.remove("line-through", "text-gray-500", "dark:text-gray-400");
     customCheckbox.classList.remove("bg-blue-500", "border-blue-500");
-    customCheckbox.classList.add("bg-white", "dark:bg-gray-900", "border-gray-300", "dark:border-gray-500"); // Revert background and border
+    customCheckbox.classList.add("bg-white", "dark:bg-gray-900", "border-gray-300", "dark:border-gray-500");
     checkIcon.classList.add("hidden");
   }
 }
 
-// Dark mode toggle functionality
+// Dark mode toggle
 themeToggleBtn.addEventListener("click", () => {
   htmlTag.classList.toggle("dark");
-  // Toggle icon visibility based on dark mode
   if (htmlTag.classList.contains("dark")) {
     sunIcon.classList.remove("hidden");
     moonIcon.classList.add("hidden");
-    themeToggleBtn.setAttribute("aria-pressed", "true"); // Dark mode is ON
+    themeToggleBtn.setAttribute("aria-pressed", "true");
   } else {
     moonIcon.classList.remove("hidden");
     sunIcon.classList.add("hidden");
-    themeToggleBtn.setAttribute("aria-pressed", "false"); // Light mode is ON
+    themeToggleBtn.setAttribute("aria-pressed", "false");
+  }
+});
+
+// Add event listener for Enter key in task input
+taskInput.addEventListener("keyup", (event) => {
+  if (event.key === "Enter") {
+    addTaskButton.click();
+    event.preventDefault();
   }
 });
