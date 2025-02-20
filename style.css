@@ -1,2 +1,18 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* Add these custom styles below Tailwind directives */
+
+#htmltag { /* Targeting the html tag with ID 'htmltag' as used in JS */
+    @apply relative; /* To make it a positioning context for the overlay */
+    background-image: url('https://static.vecteezy.com/system/resources/previews/043/115/817/non_2x/doodle-hand-drawing-set-of-memo-paper-sheets-wishlist-to-do-list-sticky-note-reminder-checklist-and-task-list-with-check-marks-paper-notes-of-various-types-isolated-on-white-background-vector.jpg'); /* Replace with your image path */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-attachment: fixed; /* Fixed background, doesn't scroll */
+  }
+  
+  #htmltag::before {
+    content: ""; /* Required for pseudo-element */
+    @apply absolute inset-0 bg-black opacity-50 z-[-1]; /* Black overlay, 50% opacity, behind content */
+  }
