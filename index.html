@@ -8,21 +8,21 @@
       href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
       rel="stylesheet"
     />
-
     <link href="style.css" rel="stylesheet" />
     <title>To-Do List</title>
-  </head>
+    <style>
 
+    </style>
+  </head>
   <body class="bg-gray-900 flex h-screen justify-center items-center">
     <div
-      class="flex flex-col items-center bg-slate-700 border border-gray-50 p-4 h-[30%] w-[50%] rounded-2xl"
+      class="flex flex-col items-center bg-slate-700 border border-gray-50 p-4 w-[50%] rounded-2xl"
     >
       <h1
         class="text-3xl font-bold font-['Nunito'] underline underline-offset-4 text-white"
       >
         ToDo List
       </h1>
-
       <div class="flex space-x-2 mb-4 mt-4 w-[80%]">
         <input
           type="text"
@@ -37,10 +37,8 @@
           Add
         </button>
       </div>
-
-      <ul id="taskList" class="space-y-2"></ul>
+      <ul id="taskList" class="space-y-2 w-[80%] text-white"></ul>
     </div>
-
     <script src="script.js"></script>
   </body>
 </html>
