@@ -14,10 +14,13 @@ addTaskButton.addEventListener("click", () => {
 
 function addTaskToList(taskText) {
   const li = document.createElement("li");
-  li.className = "flex items-center justify-between p-2 bg-gray-800 rounded";
-  li.innerHTML = 
-  `
-    <span class="task-text">${taskText}</span>
+  li.className =
+    "task-item flex items-center justify-between p-2 bg-gray-800 rounded";
+  li.innerHTML = `
+    <div class="flex items-center">
+      <input type="checkbox" class="task-checkbox rounded-full mr-2 h-5 w-5 border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer hover:ring-2 hover:ring-blue-400" />
+      <span class="task-text">${taskText}</span>
+    </div>
     <div>
       <button class="edit-btn stylish-btn px-2 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded mr-2 cursor-pointer">
         <i class="fa-solid fa-file-pen"></i>
@@ -32,23 +35,24 @@ function addTaskToList(taskText) {
 
 taskList.addEventListener("click", (event) => {
   const target = event.target;
-  const isIcon = target.tagName === "I";
-  const button = isIcon ? target.parentElement : target;
-  const li = target.closest("li");
+  const li = target.closest(".task-item");
 
   if (!li) return;
 
-  if (button.classList.contains("delete-btn")) {
+  if (
+    target.classList.contains("delete-btn") ||
+    target.closest(".delete-btn")
+  ) {
     if (confirm("Are you sure you want to delete this task?")) {
       li.remove();
     }
-  } else if (button.classList.contains("edit-btn")) {
-    editTask(li);
   } else if (
-    target.classList.contains("task-text") ||
-    target === li.firstChild
+    target.classList.contains("edit-btn") ||
+    target.closest(".edit-btn")
   ) {
-    li.classList.toggle("completed");
+    editTask(li);
+  } else if (target.classList.contains("task-checkbox")) {
+    toggleTaskComplete(li, target);
   }
 });
 
@@ -81,5 +85,16 @@ function updateTaskText(taskTextElement, newText, oldText) {
     taskTextElement.textContent = newText;
   } else {
     taskTextElement.textContent = oldText;
+  }
+}
+
+function toggleTaskComplete(li, checkbox) {
+  const taskTextElement = li.querySelector(".task-text");
+  if (checkbox.checked) {
+    taskTextElement.classList.add("completed");
+    taskTextElement.style.textDecoration = "line-through overline";
+  } else {
+    taskTextElement.classList.remove("completed");
+    taskTextElement.style.textDecoration = "none";
   }
 }
